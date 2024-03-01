@@ -11,7 +11,7 @@ import {
 import Dish from "./dish.model";
 import DishCategory from "./dish_category.model";
 
-class Restaurant extends Model {
+class Careers extends Model {
   declare name: string;
   declare notes: string;
   declare location: string;
@@ -27,57 +27,33 @@ class Restaurant extends Model {
   declare getDishes: HasManyGetAssociationsMixin<Dish>;
 }
 
-export class RestaurantCategory extends Model {}
+export class CareersCategory extends Model {}
 
-export const initializeRestaurant = (sequelize: Sequelize) => {
+export const initializeCareers = (sequelize: Sequelize) => {
   if (!sequelize) {
     throw new Error("No Sequelize instance passed");
   }
-  Restaurant.init(
+  Careers.init(
     {
       id: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
       },
-      name: {
+      title: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      notes: {
+      jd: {
         type: DataTypes.TEXT,
-        allowNull: true,
-      },
-      location: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      photo: {
-        type: DataTypes.STRING,
-        allowNull: true,
-      },
-      distance: {
-        type: DataTypes.STRING,
-        allowNull: true,
-      },
-      openTime: {
-        type: DataTypes.STRING,
-        allowNull: true,
-      },
-      deliveryFee: {
-        type: DataTypes.STRING,
-        allowNull: true,
-      },
-      minimumAmount: {
-        type: DataTypes.STRING,
         allowNull: true,
       },
     },
     {
       sequelize,
-      modelName: "Restaurant",
+      modelName: "Careers",
     }
   );
 };
 
-export default Restaurant;
+export default Careers;

@@ -1,13 +1,13 @@
 import { sequelize } from "../database/database";
 import { CustomError } from "../middleware/error.middleware";
-import { Dish, DishCategory, Restaurant } from "../model";
+import { Dish, DishCategory, Careers } from "../model";
 
-const createRestaurant = async (data: any) => {
+const createCareer = async (data: any) => {
   let transaction;
   try {
     transaction = await sequelize.transaction();
 
-    const newRestaurant = await Restaurant.create(data);
+    const newRestaurant = await Careers.create(data);
 
     await transaction.commit();
     return newRestaurant;
@@ -20,22 +20,9 @@ const createRestaurant = async (data: any) => {
   }
 };
 
-const getAllRestaurants = async () => {
+const getAllCareers = async () => {
   try {
-    const restaurants = await Restaurant.findAll({
-      include: [
-        {
-          model: DishCategory,
-          as: "categories",
-          include: [
-            {
-              model: Dish,
-              as: "dishes",
-            },
-          ],
-        },
-      ],
-    });
+    const restaurants = await Careers.findAll();
     return restaurants;
   } catch (error) {
     throw new CustomError("Restaurant fetch failed", 400);
@@ -44,7 +31,7 @@ const getAllRestaurants = async () => {
 
 const getRestaurantById = async (id: string) => {
   try {
-    const restaurant = await Restaurant.findByPk(id);
+    const restaurant = await Careers.findByPk(id);
     if (!restaurant) {
       throw new CustomError("Restaurant not found", 404);
     }
@@ -54,32 +41,16 @@ const getRestaurantById = async (id: string) => {
   }
 };
 
-const updateRestaurant = async (
-  id: string,
-  name: string,
-  notes: string | null,
-  location: string,
-  photo: string | null,
-  distance: string | null,
-  openTime: string | null,
-  deliveryFee: string | null,
-  minimumAmount: string | null
-) => {
+const updateRestaurant = async (id: string, title: string, jd: string) => {
   try {
-    const restaurant = await Restaurant.findByPk(id);
+    const restaurant = await Careers.findByPk(id);
     if (!restaurant) {
       throw new CustomError("Restaurant not found", 404);
     }
 
     await restaurant.update({
-      name,
-      notes,
-      location,
-      photo,
-      distance,
-      openTime,
-      deliveryFee,
-      minimumAmount,
+      title,
+      jd,
     });
 
     return restaurant;
@@ -90,20 +61,20 @@ const updateRestaurant = async (
 
 const deleteRestaurant = async (id: string) => {
   try {
-    const restaurant = await Restaurant.findByPk(id);
+    const restaurant = await Careers.findByPk(id);
     if (!restaurant) {
-      throw new CustomError("Restaurant not found", 404);
+      throw new CustomError("Careers not found", 404);
     }
     await restaurant.destroy();
   } catch (error) {
     console.log(error);
-    throw new CustomError("Restaurant delete failed", 400);
+    throw new CustomError("Careers delete failed", 400);
   }
 };
 
 export default {
-  createRestaurant,
-  getAllRestaurants,
+  createCareer,
+  getAllCareers,
   getRestaurantById,
   updateRestaurant,
   deleteRestaurant,

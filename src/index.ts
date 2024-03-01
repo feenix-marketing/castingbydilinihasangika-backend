@@ -1,11 +1,11 @@
 import express from "express";
 import {
   authRouter,
-  dishCategoryRouter,
-  dishRouter,
+  dashboardRouter,
+  userCategory,
   restaurantRouter,
   dishReviewRouter,
-  orderRouter,
+  ourWorksRouter,
   reportsRouter,
 } from "./routes";
 import morgan from "morgan";
@@ -23,12 +23,12 @@ app.use(express.json());
 app.use(morgan("dev"));
 
 app.use("/api/auth", authRouter);
-app.use("/api/restaurant", restaurantRouter);
-app.use("/api/dish", dishRouter);
-app.use("/api/dish-category", dishCategoryRouter);
-app.use("/api/dish-review", dishReviewRouter);
-app.use("/api/order", orderRouter);
+app.use("/api/career", restaurantRouter);
+app.use("/api/user-category", userCategory);
+app.use("/api/our-works", ourWorksRouter);
 app.use("/api/upload", reportsRouter);
+app.use("/api/dashboard", dashboardRouter);
+// app.use("/api/dish-review", dishReviewRouter);
 
 app.use(errorHandlerMiddleware);
 

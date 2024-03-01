@@ -1,16 +1,16 @@
 import express from "express";
 import authenticateToken from "../middleware/auth.middleware";
-import restaurantController from "../controllers/restaurant.controller";
+import careerController from "../controllers/careers.controller";
 
 const router = express.Router();
 
-router.get("/", restaurantController.getAllRestaurants);
-router.get("/:restaurantId", restaurantController.getRestaurantById);
+router.get("/", careerController.getAllCareers);
+router.post("/", careerController.createCareer);
+router.delete("/:id", careerController.deleteCareer);
+// router.get("/:restaurantId", careerController.getRestaurantById);
 
 // Restricted
+router.patch("/:restaurantId", careerController.updateRestaurant);
 router.use(authenticateToken);
-router.post("/create-restaurant", restaurantController.createRestaurant);
-router.patch("/:restaurantId", restaurantController.updateRestaurant);
-router.delete("/:restaurantId", restaurantController.deleteRestaurant);
 
 export default router;

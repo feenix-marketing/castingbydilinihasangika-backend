@@ -1,19 +1,20 @@
 import { NextFunction, Request, Response } from "express";
 import { orderService } from "../service";
 import { UserAttributes } from "../typings/express";
+import { OurWorks } from "../model";
 
-export const createOrder = async (
+export const createOurWork = async (
   req: Request,
   res: Response,
   next: NextFunction
 ): Promise<void> => {
   try {
-    const orderDetails = req.body;
-    const userId = (req.user as UserAttributes).id;
-    const newOrder = await orderService.createOrder(orderDetails, userId);
+    const ourWorksDetails = req.body;
+    // const userId = (req.user as UserAttributes).id;
+    const newOrder = await orderService.createOurWork(ourWorksDetails);
     res.status(201).json({
       data: newOrder,
-      message: "Order create successful",
+      message: "Our work create successful",
       error: null,
       code: 201,
     });
@@ -22,16 +23,16 @@ export const createOrder = async (
   }
 };
 
-const getOrders = async (
+const getOurWorks = async (
   _req: Request,
   res: Response,
   next: NextFunction
 ): Promise<void> => {
   try {
-    const orders = await orderService.getOrders();
+    const orders = await orderService.getOurWorks();
     res.status(200).json({
       data: orders,
-      message: "Orders fetch successful",
+      message: "Our works fetch successful",
       error: null,
       code: 200,
     });
@@ -96,9 +97,32 @@ const completeOrder = async (
   }
 };
 
+const deleteOurWork = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+): Promise<void> => {
+  try {
+    const { id } = req.params;
+
+    await OurWorks.destroy({ where: { id } });
+
+    res.status(204).json({
+      data: null,
+      message: "Our Work delete successful",
+      error: null,
+      code: 204,
+    });
+  } catch (e) {
+    console.log(e);
+    next(e);
+  }
+};
+
 export default {
-  createOrder,
-  getOrders,
+  createOurWork,
+  getOurWorks,
   getOrderById,
   completeOrder,
+  deleteOurWork,
 };

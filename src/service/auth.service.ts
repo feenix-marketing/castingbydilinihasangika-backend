@@ -36,48 +36,57 @@ import { CustomError } from "../middleware/error.middleware";
 //   return tokens;
 // };
 
-const registerUser = async (
-  body: any
-): Promise<{ accessToken: string } | null> => {
-  const hashedPassword = await bcrypt.hash(body.password, 10);
+const registerUser = async (body: any): Promise<{ accessToken: string } | null> => {
+    const hashedPassword = await bcrypt.hash(body.password, 10);
 
-  const userDetails = { ...body, password: hashedPassword };
-  const newUser = await User.create(userDetails);
+    console.log(body);
 
-  const token = tokenUtils.generateTokens({
-    id: newUser.id,
-    email: newUser.email,
-  });
+    const userDetails = { ...body, password: hashedPassword };
+    const newUser = await User.create(userDetails);
 
-  return token;
+    let userType = "user";
+
+    const token = tokenUtils.generateTokens({
+        id: newUser.id,
+        email: newUser.email,
+        userType,
+    });
+
+    return token;
 };
 
 const loginUser = async (
-  email: string,
-  password: string
+    email: string,
+    password: string
 ): Promise<{ accessToken: string } | null> => {
-  const user = await User.findOne({
-    where: { email },
-  });
+    const user = await User.findOne({
+        where: { email },
+    });
 
-  if (!user) {
-    throw new CustomError("User with provided email not found", 401);
-  }
+    if (!user) {
+        throw new CustomError("User with provided email not found", 401);
+    }
 
-  if (!(await user.verifyPassword(password))) {
-    throw new CustomError("User with provided email not found", 401);
-  }
+    if (!(await user.verifyPassword(password))) {
+        throw new CustomError("User with provided email not found", 401);
+    }
 
-  const token = tokenUtils.generateTokens({
-    id: user.id,
-    email: user.email,
-  });
+    let userType = "user";
+    if (user.user_type !== "user") {
+        userType = "admin";
+    }
 
-  return token;
+    const token = tokenUtils.generateTokens({
+        id: user.id,
+        email: user.email,
+        userType,
+    });
+
+    return token;
 };
 
 export default {
-  // refreshTokens,
-  registerUser,
-  loginUser,
+    // refreshTokens,
+    registerUser,
+    loginUser,
 };

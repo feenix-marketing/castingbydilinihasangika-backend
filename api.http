@@ -1,0 +1,61 @@
+POST http://localhost:4000/api/our-works
+content-type: application/json
+
+{
+    "image_url": "http://goodfdgle.com",
+    "link_url": "http://godfdogle.com"
+}
+
+
+####
+
+DELETE http://localhost:4000/api/our-works
+Content-Type: application/json
+
+{
+    "id" : "f48e601e-1fd4-4bda-aa4f-c8200f68076e"
+}
+
+
+####
+
+GET http://localhost:4000/api/our-works
+
+####
+
+POST http://localhost:4000/api/career
+Content-Type: application/json
+
+{
+    "title": "hello there",
+    "jd": "Hi there"
+}
+
+
+####
+
+GET http://localhost:4000/api/career
+
+
+####
+POST http://localhost:4000/api/user-category
+Content-Type: application/json
+
+{
+    "title": "hello there"
+}
+
+####
+GET http://localhost:4000/api/user-category
+
+
+
+####
+DELETE http://localhost:4000/api/user-category
+
+
+####
+
+GET http://localhost:4000/api/dashboard
+
+

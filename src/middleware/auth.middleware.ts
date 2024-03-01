@@ -23,6 +23,7 @@ const authenticateToken = async (
   try {
     const decoded = await tokenUtils.verifyToken(token);
     const user = await User.findByPk(decoded.id);
+    user!.password = "";
     if (user) {
       req.user = user;
     }
