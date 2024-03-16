@@ -1,6 +1,6 @@
 import express, { Response, Request } from "express";
 import authenticateToken from "../middleware/auth.middleware";
-import { reportController } from "../controllers";
+// import { reportController } from "../controllers";
 import credentials from "../../config/credentials.json";
 
 const multer = require("multer");
@@ -52,7 +52,7 @@ router.post("/", upload.single("file"), async (req: any, res: Response) => {
     const fileId = response.data.id;
 
     // Generate a publicly accessible URL for the uploaded image
-    const fileURL = `https://drive.google.com/uc?id=${fileId}`;
+    const fileURL = `https://lh3.googleusercontent.com/d/${fileId}`;
 
     console.log("File uploaded to Google Drive, ID:", fileId);
     res.status(200).json({ success: true, fileId, fileURL });
@@ -94,7 +94,7 @@ router.post(
         const fileId = response.data.id;
 
         // Generate a publicly accessible URL for the uploaded image
-        const fileURL = `https://drive.google.com/uc?id=${fileId}`;
+        const fileURL = `https://lh3.googleusercontent.com/d/${fileId}`;
 
         console.log("File uploaded to Google Drive, ID:", fileId);
         fileURLs.push(fileURL);

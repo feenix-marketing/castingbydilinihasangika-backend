@@ -4,7 +4,7 @@ import {
   Model,
   Sequelize,
 } from "sequelize";
-import Restaurant from "./resturent.model";
+import Restaurant from "./careers.model";
 
 class Dish extends Model {
   declare id: string;

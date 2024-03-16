@@ -1,17 +1,17 @@
 import authRouter from "./auth.routes";
 import restaurantRouter from "./restaurant.routes";
-import dishRouter from "./dish.routes";
-import dishCategoryRouter from "./dish_category.routes";
+import userCategory from "./user_category.routes";
+import dashboardRouter from "./dashboard.routes";
 import dishReviewRouter from "./dish_reviews.routes";
-import orderRouter from "./order.routes";
+import ourWorksRouter from "./our_works.routes";
 import reportsRouter from "./reports.routes";
 
 export {
   authRouter,
   restaurantRouter,
-  dishRouter,
-  dishCategoryRouter,
+  userCategory,
+  dashboardRouter,
   dishReviewRouter,
-  orderRouter,
+  ourWorksRouter,
   reportsRouter,
 };
