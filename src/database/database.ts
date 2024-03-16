@@ -29,6 +29,7 @@ const sequelize = new Sequelize(
     host: config.host,
     dialect: "mysql",
     logging: false,
+    port: 3306,
   }
 );
 
@@ -41,7 +42,7 @@ initializeUser(sequelize);
 // initializeOrderItem(sequelize);
 
 sequelize
-  .sync({ force: false })
+  .sync({ force: true })
   .then(() => {
     console.log("All models were synchronized successfully.");
   })
