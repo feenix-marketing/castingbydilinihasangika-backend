@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "castingbydilini",
+  "private_key_id": "d20127314f04ac1fd943a6b2628ad63448e63f85",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC4DUpQL3MSHI9n\nesse1q1PDOLrewUTLLM9YL+Y8LAxsafirKXssSpCfXe+P4+/w3cvnYf/rBpe39qh\nM0Id4BT/cB3W4ofjfzE+N6txEEzpfadcQmkd2yyrimxaXuny935KAKFZIfPxSsOn\nWDfJcDJMOJfVqYpsPVFTUFHi3lziBIJ1g3n4XSShSlo8Ctsz07uClCqiS57FPBoG\nG3O8rK0FcYyuOpdiAI4lAVG5EBe1NtZHhOepVkifRBiG6FJNaIaEkgVmADpf3a9u\nG55B5PhwRdiCW0d0w9PN+qz4fBP5P79UeeNcDqPjQmdaTs28jBafar+G7x2EZrjw\nrj6bHa2NAgMBAAECggEAAPjA/a9iciQIdclmLSGBBLvSrt+VZUaFI7vRByOuKnT/\np+i1b4x35qX27eA0CBUmGfBA+Y6VDQ8tflBg9vtp4PdckPfdM8xGHEf69bvaTBlH\nuur21xuDHty6ObfqkEfSON3L/EZ7nTiB0+5ZTQz0lwZtdslQW8XvGfuAkywNXXwa\nSp1tM56mpS3OdrKX9Xh2uiiVqc8XOq0Mg8V6fICmvMUvn0SHJzx3NnaOdho/3C4v\nO4MqOJ9icU4mAifaB6fMs8criXf7uOqgHS31PQJJGBNRsLxqXO5jCUMzSJkY2gHz\n72IYAvFP5ySUzDdlSsXvcVa0ybThZSF8u3Xhd5TTwQKBgQD83l/q+TdMl/apSe4L\nKpllRYo6VSZj5AxUG6BAOvSgnI9uGZfHj+U9usgnLZnHMD+W+GkLbZH+IYAM6THJ\n3crb6T596Th8iMv7YxzGXUI/19nycQZbvlaGsM8o6zBhgKr9+eZe8Rp3Y1NpWbJT\nVfEf1iUGRXEWCcWYERVzlU/kOQKBgQC6VMIHkEYz6HASPMxrXUMRtWjGk53NjKJQ\naERCUYZMd7zVvHqL7QZD47wufxkd46NVutaCH/FgLWvEXLTqdyQPiySu9/S7sdFP\nkB8WzsqZQM83agoeghSKCzzed46xp1alur1mDjqTvzSV1BM5KoGl76La/DBEJCZo\nrk+ZG8hb9QKBgQC7mYsVu3DQTUl9DNEizabiIDZN0pBZuX2ABMLeBB8q7Rvn9erJ\n7jKHmoQVtNoKkfwLWB4ukUqnfFkQuwzqE7cFccSgCx+SHLcguMZHUDbvQId8O2gZ\nNlvhL1lxpRLOs3OoWvcTZtJY0oK2fQo0k2UBVpE/VtNwIy3KBJqilpqf2QKBgAQI\nFXKocnxpCRO78QhZqjvV2wCA7ScnZdOrjd6JeQhqhtFxFI22gS4y3T18ToTRChWu\nxzlli4lzMiO7hcaU8VjMv+xxPQBappa8HZAWxVdviYw/ZRyn393kxFpj59h8MGnB\nkpuEr0vHFVIwloHkI439k159mmW/Cn21V8+ORFWJAoGBAMo/lM4qtgjDFp6LRHdk\npQJCFjT6ioLxFb2sqiXMoXSgvAXtquq+yQ3lZuwmzwwn/SC9rCbVTB5qkMuaRRi1\noQe3jKNhfNwbG2SiUUbO1s+8C/oLm3W2lob2yfy4Vu6TOuxruoLUMcyVoM7HY9Ty\nwp7sFTOeXxih19Ii7j8Gp1Vs\n-----END PRIVATE KEY-----\n",
+  "client_email": "castingmodelbank@castingbydilini.iam.gserviceaccount.com",
+  "client_id": "107189353095040490564",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/castingmodelbank%40castingbydilini.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

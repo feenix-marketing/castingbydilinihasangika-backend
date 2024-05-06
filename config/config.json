@@ -5,5 +5,12 @@
     "database": "model_bank",
     "host": "localhost",
     "dialect": "mysql"
+  },
+  "production": {
+    "username": "casthqtz_access",
+    "password": "AlrcA5sv6lXL",
+    "database": "casthqtz_backend",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
   }
 }

@@ -1,7 +1,8 @@
 import express, { Response, Request } from "express";
 import authenticateToken from "../middleware/auth.middleware";
 // import { reportController } from "../controllers";
-import credentials from "../../config/credentials.json";
+// import credentials from "../../config/credentials.json"; // from test gmail
+import credentials from "../../config/cred.json"; // from casting by dilini
 
 const multer = require("multer");
 const { google } = require("googleapis");
@@ -35,7 +36,8 @@ router.post("/", upload.single("file"), async (req: any, res: Response) => {
     const filename = uuidv4() + ".jpg";
     const fileMetadata = {
       name: filename,
-      parents: ["1cog7iX7KuQJ3sLILJnPoykh3cSpruEvy"],
+      // parents: ["1cog7iX7KuQJ3sLILJnPoykh3cSpruEvy"], // from test gmail
+      parents: ["1TOrx3kkTLY5Kt9d6MJhV2lhPWlIrhbTh"], // from casting by dilini
     };
 
     const media = {
@@ -77,7 +79,8 @@ router.post(
         const filename = uuidv4() + ".jpg";
         const fileMetadata = {
           name: filename,
-          parents: ["1cog7iX7KuQJ3sLILJnPoykh3cSpruEvy"],
+          // parents: ["1cog7iX7KuQJ3sLILJnPoykh3cSpruEvy"],
+          parents: ["1TOrx3kkTLY5Kt9d6MJhV2lhPWlIrhbTh"], // from casting by dilini
         };
 
         const media = {

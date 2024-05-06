@@ -9,10 +9,12 @@ import {
   reportsRouter,
 } from "./routes";
 import morgan from "morgan";
-require("dotenv").config({ path: ".env.local" });
+require("dotenv").config();
 import cors from "cors";
-import cookieSession from "cookie-session";
+// import cookieSession from "cookie-session";
 import errorHandlerMiddleware from "./middleware/error.middleware";
+import { initializeUserCategory } from "./model";
+import { Sequelize } from "sequelize";
 
 const app = express();
 
@@ -28,12 +30,11 @@ app.use("/api/user-category", userCategory);
 app.use("/api/our-works", ourWorksRouter);
 app.use("/api/upload", reportsRouter);
 app.use("/api/dashboard", dashboardRouter);
-// app.use("/api/dish-review", dishReviewRouter);
 
 app.use(errorHandlerMiddleware);
 
 const PORT = process.env.PORT || 4000;
 
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT} 🏁 ✅`);
+  console.log("server is running on port: ", PORT);
 });
