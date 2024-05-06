@@ -8,7 +8,5 @@ const router = express.Router();
 router.post("/", ourWorksController.createOurWork);
 router.delete("/:id", ourWorksController.deleteOurWork);
 router.get("/", ourWorksController.getOurWorks);
-router.put("/complete/:orderId", ourWorksController.completeOrder);
-router.get("/:orderId", ourWorksController.getOrderById);
 
 export default router;

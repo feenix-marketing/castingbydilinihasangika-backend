@@ -4,7 +4,6 @@ import {
   dashboardRouter,
   userCategory,
   restaurantRouter,
-  dishReviewRouter,
   ourWorksRouter,
   reportsRouter,
 } from "./routes";

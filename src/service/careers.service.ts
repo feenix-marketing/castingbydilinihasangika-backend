@@ -16,7 +16,7 @@ const createCareer = async (data: any) => {
     if (transaction) {
       await transaction.rollback();
     }
-    throw new CustomError("Restaurant create failed", 400);
+    throw new CustomError("Careers create failed", 400);
   }
 };
 
@@ -25,27 +25,27 @@ const getAllCareers = async () => {
     const restaurants = await Careers.findAll();
     return restaurants;
   } catch (error) {
-    throw new CustomError("Restaurant fetch failed", 400);
+    throw new CustomError("Careers fetch failed", 400);
   }
 };
 
-const getRestaurantById = async (id: string) => {
+const getCareersById = async (id: string) => {
   try {
     const restaurant = await Careers.findByPk(id);
     if (!restaurant) {
-      throw new CustomError("Restaurant not found", 404);
+      throw new CustomError("Careers not found", 404);
     }
     return restaurant;
   } catch (error) {
-    throw new CustomError("Restaurant fetch failed", 400);
+    throw new CustomError("Careers fetch failed", 400);
   }
 };
 
-const updateRestaurant = async (id: string, title: string, jd: string) => {
+const updateCareers = async (id: string, title: string, jd: string) => {
   try {
     const restaurant = await Careers.findByPk(id);
     if (!restaurant) {
-      throw new CustomError("Restaurant not found", 404);
+      throw new CustomError("Careers not found", 404);
     }
 
     await restaurant.update({
@@ -55,7 +55,7 @@ const updateRestaurant = async (id: string, title: string, jd: string) => {
 
     return restaurant;
   } catch (error) {
-    throw new CustomError("Restaurant update failed", 400);
+    throw new CustomError("Careers update failed", 400);
   }
 };
 
@@ -75,7 +75,7 @@ const deleteRestaurant = async (id: string) => {
 export default {
   createCareer,
   getAllCareers,
-  getRestaurantById,
-  updateRestaurant,
+  getCareersById,
+  updateCareers,
   deleteRestaurant,
 };

@@ -7,10 +7,9 @@ const router = express.Router();
 router.get("/", careerController.getAllCareers);
 router.post("/", careerController.createCareer);
 router.delete("/:id", careerController.deleteCareer);
-// router.get("/:restaurantId", careerController.getRestaurantById);
+// router.get("/:restaurantId", careerController.getCareersById);
 
 // Restricted
-router.patch("/:restaurantId", careerController.updateRestaurant);
-router.use(authenticateToken);
+router.patch("/:restaurantId", careerController.updateCareers);
 
 export default router;

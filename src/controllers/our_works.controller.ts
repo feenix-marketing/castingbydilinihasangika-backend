@@ -10,7 +10,6 @@ export const createOurWork = async (
 ): Promise<void> => {
   try {
     const ourWorksDetails = req.body;
-    // const userId = (req.user as UserAttributes).id;
     const newOrder = await orderService.createOurWork(ourWorksDetails);
     res.status(201).json({
       data: newOrder,
@@ -35,62 +34,6 @@ const getOurWorks = async (
       message: "Our works fetch successful",
       error: null,
       code: 200,
-    });
-  } catch (error) {
-    next(error);
-  }
-};
-
-const getOrderById = async (
-  req: Request,
-  res: Response,
-  next: NextFunction
-): Promise<void> => {
-  try {
-    const { orderId } = req.params;
-    const order = await orderService.getOrderById(orderId);
-    if (!order) {
-      res.status(404).json({
-        data: order,
-        message: "Order not Found",
-        error: "Order not Found",
-        code: 404,
-      });
-      return;
-    }
-    res.status(200).json({
-      data: order,
-      message: "Orders fetch successful",
-      error: null,
-      code: 200,
-    });
-  } catch (error) {
-    next(error);
-  }
-};
-
-const completeOrder = async (
-  req: Request,
-  res: Response,
-  next: NextFunction
-): Promise<void> => {
-  try {
-    const { orderId } = req.params;
-    const order = await orderService.completeOrder(orderId);
-    if (!order) {
-      res.status(404).json({
-        data: order,
-        message: "Order not Found",
-        error: "Order not Found",
-        code: 404,
-      });
-      return;
-    }
-    res.status(204).json({
-      data: order,
-      message: "Orders status change successful",
-      error: null,
-      code: 204,
     });
   } catch (error) {
     next(error);
@@ -122,7 +65,5 @@ const deleteOurWork = async (
 export default {
   createOurWork,
   getOurWorks,
-  getOrderById,
-  completeOrder,
   deleteOurWork,
 };
